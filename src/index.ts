@@ -11,7 +11,8 @@ async function main() {
 
   const jobs =
     await scraper.scrapeJobs();
-
+  
+    //Trying to push:
   console.log(
     `\nFinal Job Count: ${jobs.length}`
   );
