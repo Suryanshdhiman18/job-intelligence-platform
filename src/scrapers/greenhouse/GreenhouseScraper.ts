@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { BaseScraper } from "../base/BaseScraper";
+import { BaseScraper } from "../../base/BaseScraper";
 import { Job } from "../../models/Job";
 
 export class GreenhouseScraper extends BaseScraper {
