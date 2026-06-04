@@ -1,4 +1,7 @@
-export const companies = [
+import { Company }
+from "../models/Company";
+
+export const companies: Company[] = [
 
     // Greenhouse
     {
@@ -97,6 +100,16 @@ export const companies = [
         name: "Infineon",
         ats: "smartrecruiters",
         token: "InfineonTechnologies"
+    },
+
+    // Workday
+
+    {
+        name: "PwC",
+        ats: "workday",
+        tenant: "pwc",
+        site: "Global_Experienced_Careers",
+        host: "wd3"
     }
 
 ];

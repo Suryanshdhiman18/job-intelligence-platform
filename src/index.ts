@@ -14,6 +14,9 @@ from "./scrapers/ashby/AshbyScraper";
 import { SmartRecruitersScraper }
 from "./scrapers/smartrecruiters/SmartRecruitersScraper";
 
+import { WorkdayScraper }
+from "./scrapers/workday/WorkdayScraper";
+
 async function promptUser(): Promise<string> {
   const answers = await inquirer.prompt([
     {
@@ -72,7 +75,7 @@ async function main() {
         scraper =
           new GreenhouseScraper(
             company.name,
-            company.token
+            company.token!
           );
 
         break;
@@ -82,7 +85,7 @@ async function main() {
         scraper =
           new LeverScraper(
             company.name,
-            company.token
+            company.token!
           );
 
         break;
@@ -92,7 +95,7 @@ async function main() {
         scraper =
           new AshbyScraper(
             company.name,
-            company.token
+            company.token!
           );
 
         break;
@@ -102,7 +105,19 @@ async function main() {
         scraper =
           new SmartRecruitersScraper(
             company.name,
-            company.token
+            company.token!
+          );
+
+        break;
+
+        case "workday":
+
+        scraper =
+          new WorkdayScraper(
+            company.name,
+            company.tenant!,
+            company.site!,
+            company.host!
           );
 
         break;
