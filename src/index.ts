@@ -9,13 +9,15 @@ import { LeverScraper } from "./scrapers/lever/LeverScraper";
 import { companies } from "./config/companies";
 
 import { AshbyScraper }
-from "./scrapers/ashby/AshbyScraper";
+  from "./scrapers/ashby/AshbyScraper";
 
 import { SmartRecruitersScraper }
-from "./scrapers/smartrecruiters/SmartRecruitersScraper";
+  from "./scrapers/smartrecruiters/SmartRecruitersScraper";
 
 import { WorkdayScraper }
-from "./scrapers/workday/WorkdayScraper";
+  from "./scrapers/workday/WorkdayScraper";
+
+import { CapgeminiScraper } from "./scrapers/capgemini/CapgeminiScraper";
 
 async function promptUser(): Promise<string> {
   const answers = await inquirer.prompt([
@@ -110,7 +112,7 @@ async function main() {
 
         break;
 
-        case "workday":
+      case "workday":
 
         scraper =
           new WorkdayScraper(
@@ -118,6 +120,15 @@ async function main() {
             company.tenant!,
             company.site!,
             company.host!
+          );
+
+        break;
+
+      case "capgemini":
+
+        scraper =
+          new CapgeminiScraper(
+            company.name
           );
 
         break;

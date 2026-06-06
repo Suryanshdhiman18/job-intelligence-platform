@@ -110,6 +110,13 @@ export const companies: Company[] = [
         tenant: "pwc",
         site: "Global_Experienced_Careers",
         host: "wd3"
+    },
+
+    // Custom API
+
+    {
+        name: "Capgemini",
+        ats: "capgemini"
     }
 
 ];

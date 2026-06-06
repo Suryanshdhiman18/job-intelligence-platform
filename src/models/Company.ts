@@ -1,13 +1,17 @@
+export type ATSProvider =
+  | "greenhouse"
+  | "lever"
+  | "ashby"
+  | "smartrecruiters"
+  | "workday"
+  | "capgemini"
+  | "oracle";
+
 export interface Company {
 
   name: string;
 
-  ats:
-    | "greenhouse"
-    | "lever"
-    | "ashby"
-    | "smartrecruiters"
-    | "workday";
+  ats: ATSProvider;
 
   token?: string;
 
