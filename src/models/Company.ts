@@ -20,4 +20,8 @@ export interface Company {
   site?: string;
 
   host?: string;
+
+  apiUrl?: string;
+
+  baseJobUrl?: string;
 }

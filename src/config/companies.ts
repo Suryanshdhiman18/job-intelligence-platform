@@ -112,11 +112,30 @@ export const companies: Company[] = [
         host: "wd3"
     },
 
+    {
+        name: "Elevance Health",
+        ats: "workday",
+        tenant: "elevancehealth",
+        site: "carelonglobal_in",
+        host: "wd1"
+    },
+
     // Custom API
 
     {
         name: "Capgemini",
         ats: "capgemini"
-    }
+    },
+
+    {
+    name: "KPMG",
+    ats: "oracle",
+
+    apiUrl:
+      "https://ejgk.fa.em2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true&expand=requisitionList.workLocation,requisitionList.otherWorkLocations,requisitionList.secondaryLocations,flexFieldsFacet.values,requisitionList.requisitionFlexFields&finder=findReqs;siteNumber=CX_3001,facetsList=LOCATIONS%3BWORK_LOCATIONS%3BWORKPLACE_TYPES%3BTITLES%3BCATEGORIES%3BORGANIZATIONS%3BPOSTING_DATES%3BFLEX_FIELDS,limit=25,sortBy=POSTING_DATES_DESC",
+
+    baseJobUrl:
+      "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3001/jobs/preview/"
+}
 
 ];

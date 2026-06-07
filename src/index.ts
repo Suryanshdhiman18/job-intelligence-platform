@@ -17,7 +17,11 @@ import { SmartRecruitersScraper }
 import { WorkdayScraper }
   from "./scrapers/workday/WorkdayScraper";
 
-import { CapgeminiScraper } from "./scrapers/capgemini/CapgeminiScraper";
+import { CapgeminiScraper }
+  from "./scrapers/capgemini/CapgeminiScraper";
+
+import { OracleScraper }
+  from "./scrapers/oracle/OracleScraper";
 
 async function promptUser(): Promise<string> {
   const answers = await inquirer.prompt([
@@ -129,6 +133,17 @@ async function main() {
         scraper =
           new CapgeminiScraper(
             company.name
+          );
+
+        break;
+
+      case "oracle":
+
+        scraper =
+          new OracleScraper(
+            company.name,
+            company.apiUrl!,
+            company.baseJobUrl!
           );
 
         break;
