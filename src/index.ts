@@ -23,6 +23,9 @@ import { CapgeminiScraper }
 import { OracleScraper }
   from "./scrapers/oracle/OracleScraper";
 
+import { SuccessFactorsScraper }
+  from "./scrapers/successfactors/SuccessFactorsScraper";
+
 async function promptUser(): Promise<string> {
   const answers = await inquirer.prompt([
     {
@@ -144,6 +147,16 @@ async function main() {
             company.name,
             company.apiUrl!,
             company.baseJobUrl!
+          );
+
+        break;
+
+      case "successfactors":
+
+        scraper =
+          new SuccessFactorsScraper(
+            company.name,
+            company.careersUrl!
           );
 
         break;

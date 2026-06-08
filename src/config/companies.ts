@@ -1,5 +1,5 @@
 import { Company }
-from "../models/Company";
+    from "../models/Company";
 
 export const companies: Company[] = [
 
@@ -22,7 +22,7 @@ export const companies: Company[] = [
         token: "datadog"
     },
 
-     {
+    {
         name: "Postman",
         ats: "greenhouse",
         token: "postman"
@@ -128,14 +128,23 @@ export const companies: Company[] = [
     },
 
     {
-    name: "KPMG",
-    ats: "oracle",
+        name: "KPMG",
+        ats: "oracle",
 
-    apiUrl:
-      "https://ejgk.fa.em2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true&expand=requisitionList.workLocation,requisitionList.otherWorkLocations,requisitionList.secondaryLocations,flexFieldsFacet.values,requisitionList.requisitionFlexFields&finder=findReqs;siteNumber=CX_3001,facetsList=LOCATIONS%3BWORK_LOCATIONS%3BWORKPLACE_TYPES%3BTITLES%3BCATEGORIES%3BORGANIZATIONS%3BPOSTING_DATES%3BFLEX_FIELDS,limit=25,sortBy=POSTING_DATES_DESC",
+        apiUrl:
+            "https://ejgk.fa.em2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true&expand=requisitionList.workLocation,requisitionList.otherWorkLocations,requisitionList.secondaryLocations,flexFieldsFacet.values,requisitionList.requisitionFlexFields&finder=findReqs;siteNumber=CX_3001,facetsList=LOCATIONS%3BWORK_LOCATIONS%3BWORKPLACE_TYPES%3BTITLES%3BCATEGORIES%3BORGANIZATIONS%3BPOSTING_DATES%3BFLEX_FIELDS,limit=25,sortBy=POSTING_DATES_DESC",
 
-    baseJobUrl:
-      "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3001/jobs/preview/"
-}
+        baseJobUrl:
+            "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3001/jobs/preview/"
+    },
+
+    {
+        name: "EY",
+        ats: "successfactors",
+
+        careersUrl:
+            "https://careers.ey.com/ey/search/?q=&sortColumn=referencedate&sortDirection=desc"
+    }
+    
 
 ];

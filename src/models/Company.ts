@@ -5,7 +5,8 @@ export type ATSProvider =
   | "smartrecruiters"
   | "workday"
   | "capgemini"
-  | "oracle";
+  | "oracle"
+  | "successfactors";
 
 export interface Company {
 
@@ -24,4 +25,6 @@ export interface Company {
   apiUrl?: string;
 
   baseJobUrl?: string;
+
+  careersUrl?: string;
 }
