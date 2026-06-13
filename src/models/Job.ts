@@ -10,13 +10,40 @@ export interface Job {
 
   postedDate?: string | null;
 
-  department?: string;
+  source: string;
 
-  employmentType?: string;
+  // New fields
 
-  salary?: string;
+  jobId?: string;
 
   description?: string;
 
-  source?: string;
+  businessUnit?: string;
+
+  employmentType?: string;
+
+  experienceMin?: number;
+
+  experienceMax?: number;
+
+  designation?: string;
+
+  careerStream?: string;
+
+  jobLevel?: string;
+
+  totalPositions?: number;
+
+  skills?: string[];
+
+  rawData?: any;
+
+  department?: string;
+
+  jobFamily?: string;
+
+  organization?: string;
+
+  workplaceType?: string;
+  
 }

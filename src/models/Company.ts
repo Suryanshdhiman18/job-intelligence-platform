@@ -6,7 +6,8 @@ export type ATSProvider =
   | "workday"
   | "capgemini"
   | "oracle"
-  | "successfactors";
+  | "successfactors"
+  | "nexthire";
 
 export interface Company {
 

@@ -40,9 +40,7 @@ export class OracleScraper extends BaseScraper {
                 `Fetched ${requisitions.length} jobs`
             );
 
-            if (
-                requisitions.length === 0
-            ) {
+            if (requisitions.length === 0) {
 
                 console.log(
                     "No jobs returned from Oracle API"
@@ -53,6 +51,19 @@ export class OracleScraper extends BaseScraper {
 
             for (const job of requisitions) {
 
+                const cleanedDescription =
+                    job.ShortDescriptionStr
+                        ? job.ShortDescriptionStr
+                            .replace(/<[^>]*>/g, "")
+                            .replace(/\s+/g, " ")
+                            .trim()
+                        : "";
+
+                const location =
+                    job.PrimaryLocation ||
+                    job.workLocation?.[0]?.TownOrCity ||
+                    "Unknown";
+
                 jobs.push({
 
                     company:
@@ -62,19 +73,70 @@ export class OracleScraper extends BaseScraper {
                         job.Title ||
                         "Unknown",
 
-                    location:
-                        job.PrimaryLocation ||
-                        "Unknown",
+                    location,
 
                     applyUrl:
-                        `${this.baseJobUrl}${job.Id}`,
+                        `${this.baseJobUrl.replace(/\/$/, "")}/${job.Id}`,
 
                     postedDate:
                         job.PostedDate ||
                         null,
 
                     source:
-                        "oracle"
+                        "oracle",
+
+                    jobId:
+                        String(job.Id),
+
+                    description:
+                        cleanedDescription,
+
+                    businessUnit:
+                        job.BusinessUnit,
+
+                    department:
+                        job.Department,
+
+                    employmentType:
+                        job.WorkerType ||
+                        job.ContractType,
+
+                    designation:
+                        job.ManagerLevel,
+
+                    careerStream:
+                        job.JobFunction,
+
+                    jobLevel:
+                        job.ManagerLevel,
+
+                    jobFamily:
+                        job.JobFamily,
+
+                    organization:
+                        job.Organization,
+
+                    workplaceType:
+                        job.WorkplaceType,
+
+                    // jobType:
+                    //     job.JobType,
+
+                    // schedule:
+                    //     job.JobSchedule,
+
+                    // shift:
+                    //     job.JobShift,
+
+                    // studyLevel:
+                    //     job.StudyLevel,
+
+                    // travelRequired:
+                    //     job.DomesticTravelRequired ||
+                    //     job.InternationalTravelRequired,
+
+                    rawData:
+                        job
                 });
             }
 

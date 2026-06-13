@@ -26,6 +26,9 @@ import { OracleScraper }
 import { SuccessFactorsScraper }
   from "./scrapers/successfactors/SuccessFactorsScraper";
 
+  import { NextHireScraper }
+from "./scrapers/nexthire/NextHireScraper";
+
 async function promptUser(): Promise<string> {
   const answers = await inquirer.prompt([
     {
@@ -161,6 +164,16 @@ async function main() {
 
         break;
 
+        case "nexthire":
+
+        scraper =
+          new NextHireScraper(
+            company.name,
+            company.apiUrl!
+          );
+
+        break;
+
       default:
 
         console.log(
@@ -233,9 +246,68 @@ function displayJobs(
         )
       );
 
+      if (job.jobId) {
+
+        console.log(
+          `   🆔 ${job.jobId}`
+        );
+      }
+
       console.log(
         `   📍 ${job.location}`
       );
+
+      if (job.designation) {
+
+        console.log(
+          `   💼 ${job.designation}`
+        );
+      }
+
+      if (
+        (job.experienceMin ?? 0) > 0 ||
+        (job.experienceMax ?? 0) > 0
+      ) {
+
+        console.log(
+          `   📈 ${job.experienceMin}-${job.experienceMax} Years`
+        );
+      }
+
+      if (job.businessUnit) {
+
+        console.log(
+          `   🏢 ${job.businessUnit}`
+        );
+      }
+
+      if (job.careerStream) {
+
+        console.log(
+          `   🎯 ${job.careerStream}`
+        );
+      }
+
+      if (job.employmentType) {
+
+        console.log(
+          `   ⏰ ${job.employmentType}`
+        );
+      }
+
+      if (job.jobLevel) {
+
+        console.log(
+          `   📊 Level ${job.jobLevel}`
+        );
+      }
+
+      if (job.totalPositions) {
+
+        console.log(
+          `   👥 Positions: ${job.totalPositions}`
+        );
+      }
 
       console.log(
         `   🔗 ${chalk.blue(
@@ -249,6 +321,18 @@ function displayJobs(
           `   📅 ${new Date(
             job.postedDate
           ).toLocaleDateString()}`
+        );
+      }
+
+      if (job.description) {
+
+        const shortDescription =
+          job.description
+            .replace(/\s+/g, " ")
+            .substring(0, 500);
+
+        console.log(
+          `   📝 ${shortDescription}...`
         );
       }
 

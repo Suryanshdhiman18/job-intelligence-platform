@@ -144,7 +144,16 @@ export const companies: Company[] = [
 
         careersUrl:
             "https://careers.ey.com/ey/search/?q=&sortColumn=referencedate&sortDirection=desc"
+    },
+
+    // NextHire
+
+    {
+        name: "Swiggy",
+        ats: "nexthire",
+        apiUrl:
+            "https://swiggy.mynexthire.com/employer/careers/reqlist/get"
     }
-    
+
 
 ];
